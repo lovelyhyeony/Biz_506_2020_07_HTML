@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        input {
+            display: block;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <form action="writer">
+        <!-- 기본 값이 text -->
+        <input type="text" placeholder="이름을 입력하세요">
+        <input type="text" placeholder="id를 입력하세요 (5글자 이상)">
+        <input type="password" placeholder="비밀번호를 입력하세요 (5글자 이상)">
+        <input type="date">
+        <input type="datetime-local">
+        <input type="number">
+        <input type="email">
+        <input type="phone">
+        <button type="button" onclick="save()">저장</button>
+    </form>
+    <script>
+        function save() {
+            var name = document.getElementsByTagName("input")[0].value;
+            var userid = document.getElementsByTagName("input")[1].value;
+            var password = document.getElementsByTagName("input")[2].value;
+
+            // 0번 input box에 값이 입력되지 않았으면
+            if(name == "") {
+                alert("이름은 반드시 입력해야합니다");
+                // 입력 cursor를 box로 옮기고
+                document.getElementsByTagName("input")[0].focus(); 
+                // 더이상 코드를 진행하지 마라
+                return false; // 더이상 가지마라 할 때는 return false를 해줘야함
+            }
+            
+            if(userid.length < 5) {
+                alert("사용자 ID는 5글자 이상입니다.");
+                document.getElementsByTagName("input")[1].focus(); 
+                return false;
+            }
+
+            if(password.length < 5) {
+                alert("비밀번호는 5글자 이상입니다.");
+                document.getElementsByTagName("input")[2].focus(); 
+                return false;
+            }
+            alert("저장 :D");
+            document.getElementsByTagName("form")[0].submit(); // 이걸 해줘야지 버튼이 데이터를 서버로 보냄
+            // >>> js에서 view단에서 유효성 검사하는 코드
+        }
+    </script>
+</body>
+</html>
