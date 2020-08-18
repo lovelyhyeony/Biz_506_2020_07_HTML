@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        div {
+            border: 1px solid lightcoral;
+            height: 30px;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        // var $ = "변수로 사용가능";
+        var $input="이친구도 변수";
+        // jQuery(document.ready(function() {
+
+        // }))
+        // // 위아래 같은 코드
+        // // callback 함수
+        // $(document.ready(function(){
+
+        // }))
+        $(function(){
+            //문서가 다 만들어지면 여기에서 시작하라
+            // 이걸로 전부 통일이 됌
+            // 다른 코드들이 전부 실행되고 나서 이 함수로 들어와서 실행이 된다.
+
+            // $("#id") : id 선택자(Selector)
+            var div1 = $("#div1").text();
+            // alert("DIV1 : " + div1)
+
+            // $(".divs") : 클래스 선택자
+            // 클래스가 divs로 되어있는 항목을 클릭하면
+            $(".divs").click(function(){
+
+                // $(this) : divs가 클래스로 되어있는 항목중에서
+                // click된 자신의 정보가 담긴 변수
+                var data = $(this).text();
+                alert(data);
+            })
+            
+            // event 핸들러 : 클릭되면 수행할 코드
+            // id가 div3인 항목이 클릭되면
+            $("#div3").click(function(){
+                alert("나는 div3번입니다.");
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div id="div1" class="divs">div1</div>
+    <div id="div2" class="divs">div2</div>
+    <div id="div3" class="divs">div3</div>
+    <div id="div4" class="divs">div4</div>
+    <div id="div5" class="divs">div5</div>
+</body>
+<script>
+    // body부분에 div들이 전부 그려지고 나면
+    // div1을 div1에 담고 alert하라
+    var div1 = document.getElementById("div1").innerText;
+    // alert(div1)
+</script>
+</html>
