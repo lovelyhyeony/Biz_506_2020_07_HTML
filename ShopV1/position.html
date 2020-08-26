@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+      section {
+        /*div들이 요소가됌*/
+        display: flex;
+      }
+
+      div {
+        border: 1px solid lightcoral;
+        background-color: lightcyan;
+        height: 200px;
+      }
+
+      section div {
+        width: 30%;
+        margin: 10px;
+      }
+      /*
+      position
+      tag들을 사용을 하면 전체적으로 표준적인 특성에 따라서 위치들은
+      자동으로 조절이 된다. static(정적, 고정) 상태
+      모든 tag 요소들은 position:static 같은 특성을 갖는다.
+
+      relative
+      tag가 그려지는 위치를 임의로 지정할 수 있다.
+      */
+
+      .relative {
+        position: relative;
+        top: 50px; /* 기본값 top : 0 */
+      }
+
+      .relative.back {
+        /*div2 는 그냥 있는 친구 화면가똑같은있는 친구*/
+        /*div2보다 더 뒤에 가있음!!!!*/
+        z-index: -1;
+      }
+
+      .relative.front {
+        z-index: 10;
+      }
+
+      /*
+      absolute
+      position이 지정된 다른 부모 tag와 상대적인 위치 지정
+      만약 감싸고 있는 부모 tag의 position이 없는 경우는 body를 기준으로
+      설정되어 위치가 지정된다.
+      
+      */
+      .abs {
+        top: 30px;
+        left: 30px;
+        position: absolute;
+        background-color: lightskyblue;
+        color: black;
+      }
+
+      .abs.green {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="relative back"></div>
+      <div class="relative front"></div>
+      <div class="relative front">
+        <div class="abs">
+          relative box안에서 abs로 지정되고 section이 flex로 된 상태에서 width가
+          30%로 지정했다.
+        </div>
+      </div>
+      <div class="abs green">
+        감싸고있는 부모 tag가 section인데 position이 지정되지 않은 상태이다.
+        그리고 section이 flex인 상태 flex box 내부에있다(flex item) 이다 width :
+        30%;
+      </div>
+    </section>
+    <div></div>
+  </body>
+</html>
