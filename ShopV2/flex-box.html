@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      article {
+        border: 1px solid lightcoral;
+      }
+
+      div {
+        background-color: lightblue;
+        margin: 10px;
+        height: 20px;
+      }
+
+      article.flex {
+        display: flex;
+        width: 30%;
+      }
+
+      article.flex div {
+        width: 100px;
+      }
+      /* 마치 인라인으로 한것처럼 가로정렬이된다
+      그치만 블록형이라 하나밖에 안됌*/
+
+      article.inline-flex {
+        display: inline-flex;
+        width: 30%;
+      }
+
+      article.inline-flex div {
+        width: 100px;
+      }
+      /*인라인 플렉스로 만들어주면 자기자신이 inline이 됌
+      그냥 flex는 박스라서 하나가 한줄을 차지함
+      일렬로 나타내고싶을때 인라인 플렉스로 만들어주면된다
+      폭을 조절해주면 부모 자체가 반응형으로 만들어질수도 있다!
+      float를 쓰지않고도 비슷한 모양을 내고 있음!!!*/
+    </style>
+  </head>
+  <body>
+    <article>
+      <div></div>
+      <div></div>
+      <div></div>
+    </article>
+    <article class="flex">
+      <div></div>
+      <div></div>
+      <div></div>
+    </article>
+    <article class="inline-flex">
+      <div></div>
+      <div></div>
+      <div></div>
+    </article>
+    <article class="inline-flex">
+      <div></div>
+      <div></div>
+      <div></div>
+    </article>
+  </body>
+</html>

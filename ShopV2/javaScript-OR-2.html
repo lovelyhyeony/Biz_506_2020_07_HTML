@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //현재 내가 보고있는 돔화면의 콘텐츠의 로드가 끝나면
+      // 태그로 만든것들이 화면에 전부 그려지고나면, 함수를 시작하라
+      // 이게 없으면 자바스크립트는 맨 아래에다가 적어야함
+      // $(function () { })
+      document.addEventListener("DOMContentLoaded", function () {
+        let title1; // undefined : 변수를 선언하고 초기화 하지 않았을 때 기본 설정
+        let title2 = null;
+        let title3 = ""; // null과 매우 유사한 문자열 초기화 값
+        let title4 = NaN; // Not a Number : 어떤 변수에 담긴 문자열이 숫자로 변환 가능하냐
+        let title5 = 0;
+        // >> title5까지 boolean형으로 false임
+        let title6 = 123;
+
+        let msg = "대한민국";
+
+        msg =
+          title1 ||
+          title2 ||
+          title3 ||
+          title4 ||
+          title5 ||
+          title6 ||
+          "우리나라";
+        // or연산은 중간에 true가 나오면 그값을 저장하고 뒤에 코드는 무시
+        // >> 그래서 123이라는 값이 저장이 됐다
+
+        // $("$msg")
+        // id가 msg로 되어있는 친구에 여기는 메시지가 표시될 영역
+        // 대신 msg에 담겨있는 변수 값을 h3에다가 표시하라
+        document.querySelector("#msg").innerHTML = msg;
+      });
+    </script>
+  </head>
+  <body>
+    <h3 id="msg">여기는 메시지가 표시될 영역</h3>
+  </body>
+</html>

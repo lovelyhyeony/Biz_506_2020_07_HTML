@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 사진 옆에다가 글 적고싶을때 플로트를 많이 씀*/
+      /* 밖에있는 박스를 고정시켜놓고 높이를 고정시켜놓고
+      내용물을 감시해서 (overflow) 사용하면 된다*/
+      article {
+        border: 1px solid lightblue;
+        height: 100px;
+        overflow: hidden; /*box보다 내용물이 크면 잘라라*/
+        overflow: auto; /*box보다 내용물이 크면 스크롤바를 보여라*/
+      }
+
+      img {
+        margin: 10px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <img
+        src="7633ce2342f8903f84d3b92bef80ab5d.jpg"
+        width="200px"
+        height="200px"
+      />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur,
+        repellendus. Assumenda totam quas neque maiores, est et voluptatum earum
+        delectus voluptatem tenetur aspernatur quisquam adipisci enim
+        architecto. Odio, doloribus cupiditate.
+      </p>
+    </article>
+  </body>
+</html>

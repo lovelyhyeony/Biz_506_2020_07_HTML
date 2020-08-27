@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*아티클은 안에있는 div만큼 커짐*/
+      article {
+        background-color: lightgoldenrodyellow;
+        border: 1px solid lightcoral;
+        /* height: 50px; */
+      }
+
+      /* css3의 가상클래스(태그, 객체)를 사용하는 방법*/
+      article::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+
+      /*브라우저에 따라서 콜론이 1개거나 2개임*/
+      article:after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      /*float box의 레이아웃이 무너지는 현상을 막기위해 다양한 방법을 씀*/
+      div {
+        border: 1px solid dodgerblue;
+        margin: 10px;
+        width: 100px;
+        /*
+        item box를 float로 설정하는 순간
+        부모 box는 item들을 인식하지 못하여
+        아무것도 없는 상태라고 생각해버린다.
+        */
+      }
+      div.float {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <div class="float">가</div>
+      <div class="float">나</div>
+      <div class="float">다</div>
+      <div class="float">라</div>
+      <div class="float">마</div>
+    </article>
+  </body>
+</html>
