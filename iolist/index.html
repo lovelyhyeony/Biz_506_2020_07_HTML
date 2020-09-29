@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Read Book 2020</title>
+    <link rel="stylesheet" href="static/css/index.css" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $(function () {
+        // 화면에 scroll이 일어나면
+        $(window).scroll(function () {
+          let headerHeight = $("header").height(); // header tag의 높이 값
+          // 화면을 세로 방향으로 스크롤 할 때 윈도우 화면의 최 상단 좌표 가져오기
+          let windowTop = $(window).scrollTop();
+          if (windowTop > headerHeight) {
+            $("#main-nav").css("position", "fixed");
+            $("#main-nav").css("top", "0");
+          } else {
+            $("#main-nav").css("position", "relative");
+          }
+          console.log(headerHeight, windowTop);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header></header>
+    <nav id="main-nav">
+      <ul>
+        <li>IOLIST</li>
+        <li>상품 검색</li>
+        <!-- <li>회원가입</li>
+        <li>로그인</li>
+        <li>마이페이지</li>
+        <li>로그아웃</li> -->
+      </ul>
+    </nav>
+    <section id="main-section">
+      <table>
+        <tr>
+          <th>NO</th>
+          <th>일자</th>
+          <th>시각</th>
+          <th>상품명</th>
+          <th>매입단가</th>
+          <th>판매단가</th>
+          <th>수량</th>
+          <th>매입합계</th>
+          <th>판매합계</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2020-03-22</td>
+          <td>09:30:00</td>
+          <td>후드티</td>
+          <td>10000</td>
+          <td>판매단가</td>
+          <td>5</td>
+          <td>매입합계</td>
+          <td>판매합계</td>
+        </tr>
+      </table>
+    </section>
+    <footer>
+      <address>CopyRight &copy; lovelyheony</address>
+    </footer>
+  </body>
+</html>

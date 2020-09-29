@@ -1,0 +1,78 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  /*
+  nav#main-nav tag에 position:relative를 적용 시키기 위해 
+  미리 header에 postion을 지정해준다.
+  */
+  position: relative;
+  height: 400px;
+  color: ghostwhite;
+
+  background-image: url("../images/62af6f6e78480cd19bc815f2b5774fa2.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* header h1 {
+  font-weight: 500;
+  color: whitesmoke;
+} */
+
+nav#main-nav {
+  position: relative;
+  background-color: #b39ddb;
+  width: 100%;
+}
+
+#main-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+#main-nav ul li {
+  display: inline-block;
+  padding: 12px 16px;
+  color: white;
+  margin: 0 12px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+#main-nav ul li:first-child {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+#main-nav ul li:nth-child(2),
+#main-nav ul li:nth-child(3) {
+  margin-left: auto;
+}
+
+#main-nav ul li:hover {
+  background-color: ghostwhite;
+  color: #4527a0;
+  border-bottom: 2px solid #4527a0;
+}
+
+section#main-section {
+  height: 1000px;
+}
+
+footer {
+  background-color: #b39ddb;
+  color: ghostwhite;
+  text-align: center;
+  padding: 10px;
+}
