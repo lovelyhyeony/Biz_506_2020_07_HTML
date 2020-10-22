@@ -58,11 +58,6 @@
         border: none;
       }
 
-      form#bbs-form button {
-        padding: 10px 16px;
-        margin: 5px;
-      }
-
       section#bbs-list table {
         width: 100%;
         border-collapse: collapse;
@@ -73,6 +68,36 @@
       section#bbs-list td {
         border: 1px solid #fff;
         padding: 5px;
+      }
+
+      div#button-box {
+        text-align: right;
+      }
+
+      div#button-box button {
+        padding: 8px 16px;
+        margin: 5px;
+        color: white;
+        border: 0;
+        border-radius: 4px;
+        border: 2px solid transparent;
+        outline: none;
+      }
+
+      div#button-box button:hover {
+        /* box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6); */
+        background-color: white;
+        color: cornflowerblue;
+        border: 2px solid cornflowerblue;
+        transition: 0.5s;
+      }
+
+      button#btn-send {
+        background-color: cornflowerblue;
+      }
+
+      button#btn-reset {
+        background-color: darkslateblue;
       }
     </style>
     <script>
@@ -138,6 +163,7 @@
             .then((res) => {
               if (res.status === 200) {
                 let data = res.data;
+                $("#b_seq").val(data.b_seq);
                 $("#b_date").val(data.b_date);
                 $("#b_time").val(data.b_time);
                 $("#b_writer").val(data.b_writer);
@@ -148,6 +174,45 @@
             .catch((err) => {
               alert("통신오류");
             });
+        }); // list click event end
+        $(document).on("click", "button#btn-send", () => {
+          let seq = $("#b_seq").val();
+          let send_method = "POST";
+          // seq는 문자열인데 0보다 크냐고 물어봄
+          // seq가 자동으로 형변환 된 것임!
+          // 이 값이 내가 원하는대로 나오는지 꼭 테스트를 해보아야함!!
+          // === 로 쓰면 type까지 같이 검사해서 계속 false가 나옴!
+          // 그러니 부등호로 검사하자
+          if (seq > 0) {
+            send_method = "PUT";
+            // alert("UPDATE");
+          } // else {
+          // alert("추가");
+          //   }
+
+          // form에 담긴 데이터를 axios(ajax방식)으로 서버로 전송하기
+          // 1. js의 FormData 클래스를 객체로 생성
+          // let formData = new FormData();
+          // form에 입력된 input box의 모든 값을 문자열화하여
+          // FormData 객체로 만들어서 formData 변수에 담아라!
+          let formData = $("form#bbs-form").serialize();
+          axios({
+            url: "http://localhost:8080/bbs/api/bbs",
+            method: send_method,
+            data: formData,
+          })
+            .then((res) => {
+              alert("데이터 전송 성공");
+            })
+            .catch((err) => {
+              alert("통신 오류 x(");
+            });
+        }); // btn-send end
+
+        // reset 버튼 hidden input data clear 버그 수정
+        // reset 버튼 누르면 seq를 강제로 0으로 세팅!
+        $("document").on("click", "#btn-reset", () => {
+          $("#b_seq").val(0);
         });
       });
     </script>
@@ -182,8 +247,10 @@
       <div>
         <label>내용</label><input name="b_content" id="b_content" type="text" />
       </div>
-      <div>
-        <button type="button">전송</button>
+      <div id="button-box">
+        <input name="b_seq" id="b_seq" value="0" type="hidden" />
+        <button type="button" id="btn-send">전송</button>
+        <button type="reset" id="btn-reset">새로작성</button>
       </div>
     </form>
   </body>
