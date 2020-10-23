@@ -258,7 +258,7 @@
               // alert("파일 업로드 성공\n" + result);
               $("#image-drop h4").text("파일을 끌어 놓으세요");
               let img = $("<img>", {
-                src: "http://localhost:8080/upload/" + result,
+                src: "http://localhost:8080/bbs/upload/" + result,
                 height: "100px",
               });
               $("#image-view").html(img); // 내가 업로드한 파일을 다시한번 확인하는 작업
